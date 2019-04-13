@@ -1,65 +1,82 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraduationTracker
 {
-    public partial class GraduationTracker
-    {   
-        public Tuple<bool, STANDING>  HasGraduated(Diploma diploma, Student student)
-        {
-            var credits = 0;
-            var average = 0;
-        
-            for(int i = 0; i < diploma.Requirements.Length; i++)
-            {
-                for(int j = 0; j < student.Courses.Length; j++)
-                {
-                    var requirement = Repository.GetRequirement(diploma.Requirements[i]);
+    public class GraduationTracker
+    {
 
-                    for (int k = 0; k < requirement.Courses.Length; k++)
+        public Tuple<bool, Standing> HasGraduated(Diploma diploma, Student student)
+        {
+            int average = 0;
+            CalculateAverage(diploma, student, ref average);
+            return CheckGraduation(average);
+        }
+
+        /// <summary>
+        /// Process Student average and check Graduation
+        /// </summary>
+        /// <param name="average"> Average Course Mark</param>
+        /// <returns>IsGraduated and Standings</returns>
+        private Tuple<bool, Standing> CheckGraduation(int average)
+        {
+            Standing standing = Standing.None;
+
+            if (average < 50)
+            {
+                standing = Standing.Remedial;
+            }
+            else if (average < 70)
+            {
+                standing = Standing.Average;
+            }
+            else if (average < 90)
+            {
+                standing = Standing.MagnaCumLaude;
+            }
+            else
+            {
+                standing = Standing.SumaCumLaude;
+            }
+
+            switch (standing)
+            {
+                case Standing.Remedial:
+                    return new Tuple<bool, Standing>(false, standing);
+                case Standing.Average:
+                    return new Tuple<bool, Standing>(true, standing);
+                case Standing.SumaCumLaude:
+                    return new Tuple<bool, Standing>(true, standing);
+                case Standing.MagnaCumLaude:
+                    return new Tuple<bool, Standing>(true, standing);
+                default:
+                    return new Tuple<bool, Standing>(false, standing);
+            }
+        }
+
+        /// <summary>
+        /// Calculate average from Student Courses and Diploma Requirements
+        /// </summary>
+        /// <param name="diploma"></param>
+        /// <param name="student"></param>
+        /// <param name="average"></param>
+        private static void CalculateAverage(Diploma diploma, Student student, ref int average)
+        {
+            foreach (int req in diploma.Requirements)
+            {
+                foreach (Course course in student.Courses)
+                {
+                    Requirement requirement = Repository.GetRequirement(req);
+
+                    foreach (int c in requirement.Courses)
                     {
-                        if (requirement.Courses[k] == student.Courses[j].Id)
+                        if (c == course.Id)
                         {
-                            average += student.Courses[j].Mark;
-                            if (student.Courses[j].Mark > requirement.MinimumMark)
-                            {
-                                credits += requirement.Credits;
-                            }
+                            average += course.Mark;
                         }
                     }
                 }
             }
-
             average = average / student.Courses.Length;
-
-            var standing = STANDING.None;
-
-            if (average < 50)
-                standing = STANDING.Remedial;
-            else if (average < 80)
-                standing = STANDING.Average;
-            else if (average < 95)
-                standing = STANDING.MagnaCumLaude;
-            else
-                standing = STANDING.MagnaCumLaude;
-
-            switch (standing)
-            {
-                case STANDING.Remedial:
-                    return new Tuple<bool, STANDING>(false, standing);
-                case STANDING.Average:
-                    return new Tuple<bool, STANDING>(true, standing);
-                case STANDING.SumaCumLaude:
-                    return new Tuple<bool, STANDING>(true, standing);
-                case STANDING.MagnaCumLaude:
-                    return new Tuple<bool, STANDING>(true, standing);
-
-                default:
-                    return new Tuple<bool, STANDING>(false, standing);
-            } 
         }
     }
 }
