@@ -55,6 +55,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GraduationTracker.CommonHelpers\GraduationTracker.CommonHelpers.csproj">
+      <Project>{7ef66e05-0774-4d8b-9c1a-5f51f11bb905}</Project>
+      <Name>GraduationTracker.CommonHelpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GraduationTracker.Models\GraduationTracker.Models.csproj">
+      <Project>{8a504507-1159-444c-a083-94c76768bda5}</Project>
+      <Name>GraduationTracker.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GraduationTracker.Repository\GraduationTracker.Repository.csproj">
+      <Project>{a4f19db7-d723-4999-a1be-ee6a764a8637}</Project>
+      <Name>GraduationTracker.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GraduationTracker\GraduationTracker.csproj">
       <Project>{3f941a8a-25c9-4a01-83ab-0393c50bb1cf}</Project>
       <Name>GraduationTracker</Name>

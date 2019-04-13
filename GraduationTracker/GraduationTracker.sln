@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationTracker", "Gradua
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationTracker.Tests.Unit", "GraduationTracker.Tests.Unit\GraduationTracker.Tests.Unit.csproj", "{32D5A0F1-FBA7-4A90-AC86-80E14713D161}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationTracker.Models", "GraduationTracker.Models\GraduationTracker.Models.csproj", "{8A504507-1159-444C-A083-94C76768BDA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationTracker.CommonHelpers", "GraduationTracker.CommonHelpers\GraduationTracker.CommonHelpers.csproj", "{7EF66E05-0774-4D8B-9C1A-5F51F11BB905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduationTracker.Repository", "GraduationTracker.Repository\GraduationTracker.Repository.csproj", "{A4F19DB7-D723-4999-A1BE-EE6A764A8637}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,18 @@ Global
 		{32D5A0F1-FBA7-4A90-AC86-80E14713D161}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32D5A0F1-FBA7-4A90-AC86-80E14713D161}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32D5A0F1-FBA7-4A90-AC86-80E14713D161}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A504507-1159-444C-A083-94C76768BDA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A504507-1159-444C-A083-94C76768BDA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A504507-1159-444C-A083-94C76768BDA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A504507-1159-444C-A083-94C76768BDA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EF66E05-0774-4D8B-9C1A-5F51F11BB905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EF66E05-0774-4D8B-9C1A-5F51F11BB905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EF66E05-0774-4D8B-9C1A-5F51F11BB905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EF66E05-0774-4D8B-9C1A-5F51F11BB905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4F19DB7-D723-4999-A1BE-EE6A764A8637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4F19DB7-D723-4999-A1BE-EE6A764A8637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4F19DB7-D723-4999-A1BE-EE6A764A8637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4F19DB7-D723-4999-A1BE-EE6A764A8637}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
